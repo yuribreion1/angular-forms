@@ -15,4 +15,15 @@ export class Validacoes {
             return { menorDeIdade: true };
         }
     }
+
+    static SenhasIguais( controle: AbstractControl ) {
+        const senha = controle.get('senha').value;
+        const confirmaSenha = controle.get('confirmarSenha').value;
+        console.log(senha + ' ' + confirmaSenha);
+        if (senha === confirmaSenha) {
+            return null;
+        } else {
+            controle.get('confirmarSenha').setErrors({ senhasIdenticas: true });
+        }
+    }
 }

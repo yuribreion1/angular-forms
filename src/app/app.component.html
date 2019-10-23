@@ -11,9 +11,9 @@
       </div>
     </div>
     <div *ngIf="!nome.pristine && nome.errors">
-      <p *ngIf="nome.errors.required">Nome é requerido</p>
-      <p *ngIf="nome.errors.minlength">O campo deve ter no mínimo 3 caracteres</p>
-      <p *ngIf="nome.errors.maxlength">O campo não deve ter mais que 70 caracteres</p>
+      <p class="uk-label uk-label-danger" *ngIf="nome.errors.required">Nome é requerido</p>
+      <p class="uk-label uk-label-danger" *ngIf="nome.errors.minlength">O campo deve ter no mínimo 3 caracteres</p>
+      <p class="uk-label uk-label-danger" *ngIf="nome.errors.maxlength">O campo não deve ter mais que 70 caracteres</p>
     </div>
     <div class="uk-margin">
       <label class="uk-form-label" for="email">E-mail</label>
@@ -22,7 +22,7 @@
       </div>
     </div>
     <div *ngIf="!email.pristine && email.errors">
-      <p *ngIf="email.errors.email">Um e-mail válido deve ser preenchido</p>
+      <p class="uk-label uk-label-danger" *ngIf="email.errors.email">Um e-mail válido deve ser preenchido</p>
     </div>
     <div class="uk-margin">
       <label class="uk-form-label" for="cpf">CPF</label>
@@ -35,21 +35,30 @@
       <div class="uk-form-controls">
         <input class="uk-input uk-form-width-medium" type="date" formControlName="nascimento">
       </div>
-      <div class="uk-form-controls" *ngIf="!nascimento.pristine && nascimento.errors">
-        <p class="uk-margin" *ngIf="nascimento.errors.required">Data de nascimento é obrigatória</p>
-        <p class="uk-margin" *ngIf="nascimento.errors.menorDeIdade">Precisa ser maior de 18 anos para cadastrar-se</p>
+      <div class="uk-margin uk-form-controls" *ngIf="!nascimento.pristine && nascimento.errors">
+        <p class="uk-label uk-label-danger" *ngIf="nascimento.errors.required">Data de nascimento é obrigatória</p>
+        <p class="uk-label uk-label-danger" *ngIf="nascimento.errors.menorDeIdade">Precisa ser maior de 18 anos para cadastrar-se</p>
       </div>
     </div>
     <div class="uk-margin">
       <label class="uk-form-label" for="senha">Senha</label>
       <div class="uk-form-controls">
         <input class="uk-input uk-form-width-medium" type="password" formControlName="senha">
+        <div class="uk-margin" *ngIf="!senha.pristine && senha.errors">
+          <p class="uk-label uk-label-danger" *ngIf="senha.errors.required">Senha é obrigatória</p>
+          <p class="uk-label uk-label-danger" *ngIf="senha.errors.minlength">Senha deve ter no mínimo 6 caracteres</p>
+          <p class="uk-label uk-label-danger" *ngIf="senha.errors.maxlength">Senha deve ter no maximo 12 caracteres</p>
+        </div>
       </div>
     </div>
     <div class="uk-margin">
       <label class="uk-form-label" for="confirmarSenha">Confirmar senha</label>
       <div class="uk-form-controls">
         <input class="uk-input uk-form-width-medium" type="password" formControlName="confirmarSenha">
+        <div class="uk-margin" *ngIf="!confirmarSenha.pristine && confirmarSenha.errors">
+          <p class="uk-label uk-label-danger" *ngIf="confirmarSenha.errors.required">Campo obrigatória</p>
+          <p class="uk-label uk-label-danger" *ngIf="confirmarSenha.errors.senhasIdenticas">Senhas não são iguais</p>
+        </div>
       </div>
     </div>
     <div class="uk-margin">

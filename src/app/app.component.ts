@@ -21,8 +21,10 @@ export class AppComponent {
         email: ['', Validators.email ],
         cpf: [''],
         nascimento: ['', Validators.compose([ Validators.required, Validacoes.MaiorQue18Anos ])],
-        senha: [''],
-        confirmarSenha: ['']
+        senha: ['', Validators.compose([ Validators.required, Validators.maxLength(12), Validators.minLength(6) ])],
+        confirmarSenha: ['', Validators.compose([ Validators.required ])]
+      }, {
+        validator: Validacoes.SenhasIguais
       }
     );
   }
@@ -39,5 +41,11 @@ export class AppComponent {
   }
   public get nascimento() {
     return this.formularioDeUsuario.get('nascimento');
+  }
+  public get senha() {
+    return this.formularioDeUsuario.get('senha');
+  }
+  public get confirmarSenha() {
+    return this.formularioDeUsuario.get('confirmarSenha');
   }
 }
