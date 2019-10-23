@@ -1,4 +1,8 @@
 <div class="uk-container">
+    <div class="uk-card uk-card-default uk-card-body uk-margin">
+        <h3 class="uk-card-title">Aula 9</h3>
+        <p>Criando e validando campos do formulário</p>
+    </div>
   <form class="uk-form-controls" [formGroup]="formularioDeUsuario" (ngSubmit)="enviarDados()">
     <div class="uk-margin">
       <label class="uk-form-label" for="nome">Nome</label>
@@ -30,6 +34,10 @@
       <label class="uk-form-label" for="nascimento">Data de nascimento</label>
       <div class="uk-form-controls">
         <input class="uk-input uk-form-width-medium" type="date" formControlName="nascimento">
+      </div>
+      <div class="uk-form-controls" *ngIf="!nascimento.pristine && nascimento.errors">
+        <p class="uk-margin" *ngIf="nascimento.errors.required">Data de nascimento é obrigatória</p>
+        <p class="uk-margin" *ngIf="nascimento.errors.menorDeIdade">Precisa ser maior de 18 anos para cadastrar-se</p>
       </div>
     </div>
     <div class="uk-margin">

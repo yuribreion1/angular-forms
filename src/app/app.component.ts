@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Validacoes } from './validacoes';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,7 @@ export class AppComponent {
         )],
         email: ['', Validators.email ],
         cpf: [''],
-        nascimento: [''],
+        nascimento: ['', Validators.compose([ Validators.required, Validacoes.MaiorQue18Anos ])],
         senha: [''],
         confirmarSenha: ['']
       }
@@ -35,5 +36,8 @@ export class AppComponent {
   }
   public get email() {
     return this.formularioDeUsuario.get('email');
+  }
+  public get nascimento() {
+    return this.formularioDeUsuario.get('nascimento');
   }
 }
