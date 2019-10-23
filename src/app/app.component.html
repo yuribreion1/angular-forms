@@ -1,46 +1,59 @@
-<form [formGroup]="formularioDeUsuario" (ngSubmit)="enviarDados()" >
-  <div>
-    <label for="nome">Nome</label>
-    <input type="text" formControlName="nome">
-  </div>
-  <div *ngIf="!nome.pristine && nome.errors">
-    <p *ngIf="nome.errors.required">Nome é requerido</p>
-    <p *ngIf="nome.errors.minlength">O campo deve ter no mínimo 3 caracteres</p>
-    <p *ngIf="nome.errors.maxlength">O campo não deve ter mais que 70 caracteres</p>
-  </div>
-  <div>
-    <label for="email">E-mail</label>
-    <input type="email" formControlName="email">
-  </div>
-  <div *ngIf="!email.pristine && email.errors">
-    <p *ngIf="email.errors.email">Um e-mail válido deve ser preenchido</p>
-  </div>
-  <div>
-    <label for="cpf">CPF</label>
-    <input type="text" formControlName="cpf">
-  </div>
-  <div>
-    <label for="nascimento">Data de nascimento</label>
-    <input type="date" formControlName="nascimento">
-  </div>
-  <div>
-    <label for="senha">Senha</label>
-    <input type="password" formControlName="senha">
-  </div>
-  <div>
-    <label for="confirmarSenha">Confirmar senha</label>
-    <input type="password" formControlName="confirmarSenha">
-  </div>
-  <div>
-    <button type="submit" [disabled]="!formularioDeUsuario.valid" >Submeter</button>
-  </div>
-  <pre>
-    {{ formularioDeUsuario.value | json }}
-  </pre>
-  <pre>
-      {{ formularioDeUsuario.valid }}
-  </pre>
+<div class="uk-container">
+  <form class="uk-form-controls" [formGroup]="formularioDeUsuario" (ngSubmit)="enviarDados()">
+    <div class="uk-margin">
+      <label class="uk-form-label" for="nome">Nome</label>
+      <div class="uk-form-controls">
+        <input class="uk-input uk-form-width-medium" type="text" formControlName="nome">
+      </div>
+    </div>
+    <div *ngIf="!nome.pristine && nome.errors">
+      <p *ngIf="nome.errors.required">Nome é requerido</p>
+      <p *ngIf="nome.errors.minlength">O campo deve ter no mínimo 3 caracteres</p>
+      <p *ngIf="nome.errors.maxlength">O campo não deve ter mais que 70 caracteres</p>
+    </div>
+    <div class="uk-margin">
+      <label class="uk-form-label" for="email">E-mail</label>
+      <div class="uk-form-controls">
+        <input class="uk-input uk-form-width-medium" type="email" formControlName="email">
+      </div>
+    </div>
+    <div *ngIf="!email.pristine && email.errors">
+      <p *ngIf="email.errors.email">Um e-mail válido deve ser preenchido</p>
+    </div>
+    <div class="uk-margin">
+      <label class="uk-form-label" for="cpf">CPF</label>
+      <div class="uk-form-controls">
+        <input class="uk-input uk-form-width-medium" type="text" formControlName="cpf">
+      </div>
+    </div>
+    <div class="uk-margin">
+      <label class="uk-form-label" for="nascimento">Data de nascimento</label>
+      <div class="uk-form-controls">
+        <input class="uk-input uk-form-width-medium" type="date" formControlName="nascimento">
+      </div>
+    </div>
+    <div class="uk-margin">
+      <label class="uk-form-label" for="senha">Senha</label>
+      <div class="uk-form-controls">
+        <input class="uk-input uk-form-width-medium" type="password" formControlName="senha">
+      </div>
+    </div>
+    <div class="uk-margin">
+      <label class="uk-form-label" for="confirmarSenha">Confirmar senha</label>
+      <div class="uk-form-controls">
+        <input class="uk-input uk-form-width-medium" type="password" formControlName="confirmarSenha">
+      </div>
+    </div>
+    <div class="uk-margin">
+      <button class="uk-button uk-button-default" type="submit" [disabled]="!formularioDeUsuario.valid">Submeter</button>
+    </div>
+    <pre>
+      {{ formularioDeUsuario.value | json }}
+    </pre>
+    <pre>
+        {{ formularioDeUsuario.valid }}
+    </pre>
 
-</form>
-
+  </form>
+</div>
 <router-outlet></router-outlet>

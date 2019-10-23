@@ -6,9 +6,6 @@
     "nona-aula": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
       },
       "root": "",
       "sourceRoot": "src",
@@ -28,7 +25,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "./node_modules/uikit/dist/css/uikit.min.css"
             ],
             "scripts": []
           },
